@@ -11,6 +11,6 @@ import org.springframework.stereotype.Component;
 public class MyService {
 
     public  void setInfo(User user){
-        user.setName("rongfengliang");
+        user.setName("rongfengliangdddddddd");
     }
 }

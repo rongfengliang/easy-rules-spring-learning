@@ -10,8 +10,7 @@
       "condition": "#{#user.age >= 18}",
       "priority": 2,
       "actions": [
-        "#{@myService.setInfo(#user)}",
-        "#{T(com.appdemo.demo.UserService).doAction4(#user)}"
+        "@myService.setInfo(#user)}"
       ]
     }
   ]}

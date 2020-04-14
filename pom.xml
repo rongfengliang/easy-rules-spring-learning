@@ -26,17 +26,17 @@
 		<dependency>
 			<groupId>org.jeasy</groupId>
 			<artifactId>easy-rules-core</artifactId>
-			<version>3.4.0</version>
+			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jeasy</groupId>
 			<artifactId>easy-rules-mvel</artifactId>
-			<version>3.4.0</version>
+			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jeasy</groupId>
 			<artifactId>easy-rules-spel</artifactId>
-			<version>3.4.0</version>
+			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -55,7 +55,12 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
+	<repositories>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>

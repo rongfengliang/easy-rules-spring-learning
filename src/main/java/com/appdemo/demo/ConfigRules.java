@@ -1,12 +1,13 @@
 package com.appdemo.demo;
 
 import org.jeasy.rules.api.Rules;
-import org.jeasy.rules.mvel.MVELRuleFactory;
+import org.jeasy.rules.spel.SpELRuleFactory;
 import org.jeasy.rules.support.JsonRuleDefinitionReader;
-import org.mvel2.ParserContext;
+import org.jeasy.rules.support.RuleDefinitionReader;
+import org.springframework.expression.BeanResolver;
+import org.springframework.expression.ParserContext;
+import org.springframework.expression.common.TemplateParserContext;
 import org.springframework.stereotype.Component;
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
@@ -16,10 +17,9 @@ import java.io.FileReader;
 @Component
 public class ConfigRules {
     public Rules fetchConfigRules() throws Exception {
-        MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
-        ParserContext context  =new ParserContext();
-        context.addImport("UserService", UserService.class);
-        Rules jsonRules = ruleFactory.createRules(new FileReader(DemoApplication.class.getClassLoader().getResource("rules-json2.json").getFile()),context);
+        BeanResolver beanResolver = new SimpleBeanResovler(SpringBeanUtil.getApplicationContext());
+        SpELRuleFactory ruleFactory = new SpELRuleFactory(new JsonRuleDefinitionReader(),beanResolver);
+        Rules jsonRules = ruleFactory.createRules(new FileReader(DemoApplication.class.getClassLoader().getResource("rules-json.json").getFile()));
         return jsonRules;
     }
 }
