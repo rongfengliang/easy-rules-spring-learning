@@ -1,0 +1,26 @@
+[{
+  "name": "1",
+  "description": "1",
+  "priority": 1,
+  "compositeRuleType": "UnitRuleGroup",
+  "composingRules": [
+    {
+      "name": "2",
+      "description": "2",
+      "condition": "#{user.getAge()<28}",
+      "priority": 2,
+      "actions": [
+        "System.out.println(\"UnitRuleGroup not ok rule2 \")"
+      ]
+    }
+  ]},
+  {
+    "name": "9",
+    "description": "9",
+    "condition": "#{user.getNName().length<50}",
+    "priority": 9,
+    "actions": [
+      "@UserService.appendName(user)"
+    ]
+  }
+]
